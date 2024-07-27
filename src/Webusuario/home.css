@@ -1,0 +1,78 @@
+/* Estilos para el contenedor de la página de inicio */
+.home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #e0f7fa; /* Color de fondo claro */
+  padding: 1rem;
+  box-sizing: border-box; /* Asegura que el padding no afecte el tamaño total del contenedor */
+  position: relative; /* Permite ajustes de posición para los elementos hijos */
+}
+
+/* Estilos para el mensaje de bienvenida */
+.welcome-message {
+  position: absolute; top: 0;/*arriba del todo*/
+  font-size: 30px; /* Tamaño del texto ajustado */
+  color: #00796b; /* Color del texto */
+  margin-top: 20px; /* Margen superior de 20px para separarlo del borde superior */
+  margin-bottom: 10px; /* Margen inferior para separar del siguiente elemento */
+  text-align: center; /* Centra el texto horizontalmente */
+}
+
+/* Estilo para el texto de saldo */
+.balance-text {
+  position: absolute; top: 70px;
+  font-size: 30px; /* Tamaño del texto */
+  color: #004d40; /* Color del texto */
+  margin-top: 10px; /* Margen superior para separarlo del mensaje de bienvenida */
+  margin-bottom: 20px; /* Margen inferior para separar del siguiente elemento */
+  text-align: center; /* Centra el texto horizontalmente */
+}
+
+/* Contenedor para los botones de acción */
+.buttons-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px; /* Espacio entre los botones */
+  margin-bottom: 20px; /* Espacio debajo del contenedor de botones */
+}
+
+/* Estilo para los botones de acción */
+.action-button {
+  background-color: #00796b;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  width: 200px; /* Ancho fijo para todos los botones */
+}
+
+.action-button:hover {
+  background-color: #004d40; /* Color de fondo más oscuro al pasar el mouse */
+}
+
+/* Estilo para el botón de cerrar sesión */
+.signout-button {
+  background-color: #004d40;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  position: absolute;
+  bottom: 20px; /* Ubica el botón en la parte inferior */
+  left: 50%;
+  transform: translateX(-50%); /* Centra el botón horizontalmente */
+}
+
+.signout-button:hover {
+  background-color: #00332e; /* Color de fondo más oscuro al pasar el mouse */
+}

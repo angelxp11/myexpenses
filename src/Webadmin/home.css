@@ -1,0 +1,25 @@
+/* Estilos para el contenedor de la página de inicio del administrador */
+.admin-home-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #e8f5e9; /* Color de fondo claro */
+    padding: 1rem;
+  }
+  
+  /* Estilos para el mensaje de bienvenida */
+  .admin-welcome-message {
+    font-size: 2.5rem;
+    color: #2e004d; /* Color del texto */
+    margin-bottom: 1rem;
+  }
+  
+  /* Estilos para la descripción de bienvenida */
+  .admin-welcome-description {
+    font-size: 1.2rem;
+    color: #2e004d; /* Color del texto */
+    text-align: center;
+  }
+  

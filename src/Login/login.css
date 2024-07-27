@@ -1,0 +1,125 @@
+/* Estilos generales para el contenedor de login */
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #f9f9f9;
+  padding: 20px;
+}
+
+/* Estilo para el título del formulario */
+.login-title {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Estilo para el formulario */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 400px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo para los grupos de campos del formulario */
+.form-group {
+  margin-bottom: 15px;
+}
+
+/* Estilo para las etiquetas de los campos */
+.form-group label {
+  display: block;
+  font-size: 0.9rem;
+  margin-bottom: 5px;
+  color: #555;
+}
+
+/* Estilo para los campos de entrada */
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+/* Estilo para el grupo de contraseñas con el botón de mostrar/ocultar */
+.password-group {
+  position: relative;
+}
+
+.password-group input {
+  padding-right: 60px; /* Espacio para el botón de mostrar/ocultar */
+}
+
+.password-toggle {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  color: #007bff;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+/* Estilo para el botón de envío del formulario */
+.login-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.login-button:disabled {
+  background-color: #ddd;
+  cursor: not-allowed;
+}
+
+.login-button:hover:not(:disabled) {
+  background-color: #0056b3;
+}
+
+/* Estilo para el mensaje de error */
+.error-message {
+  color: #ff0000;
+  font-size: 0.9rem;
+  margin-bottom: 15px;
+}
+
+/* Estilo para el enlace de "Olvidé mi contraseña" */
+.forgot-password {
+  color: #007bff;
+  font-size: 0.9rem;
+  text-align: center;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+/* Estilo para el enlace de cambio de modo */
+.toggle-link {
+  color: #007bff;
+  font-size: 0.9rem;
+  text-align: center;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+/* Estilo para el contenedor de los toasts */
+.Toastify__toast-container {
+  font-size: 0.9rem;
+}
+
