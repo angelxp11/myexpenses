@@ -2,10 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import { onAuthStateChanged } from 'firebase/auth';
 import { getDoc, doc } from 'firebase/firestore';
-import { auth, db } from './firebase'; // Asegúrate de que la ruta es correcta
+import { auth, db } from './firebase'; // Asegúrate de que esta ruta es correcta
 import Login from './Login/login';
+import Register from './Registro/Registro'; // Asegúrate de que esta ruta es correcta
 import Home from './Webusuario/home';
-import AdminHome from './Webadmin/home'; // Asegúrate de que el nombre del archivo es correcto y está en la ruta correcta
+import AdminHome from './Webadmin/home'; // Asegúrate de que esta ruta es correcta
+import 'react-toastify/dist/ReactToastify.css'; // Estilos predeterminados de react-toastify
+import './toast.css'; // Importa tus estilos personalizados para los toasts
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -42,6 +45,10 @@ function App() {
         <Route
           path="/login"
           element={!isAuthenticated ? <Login /> : <Navigate to={isAdmin ? '/admin/home' : '/user/home'} />}
+        />
+        <Route
+          path="/register"
+          element={!isAuthenticated ? <Register /> : <Navigate to={isAdmin ? '/admin/home' : '/user/home'} />}
         />
         <Route
           path="/user/home"

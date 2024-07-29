@@ -1,0 +1,156 @@
+
+
+/* Estilos para la capa de fondo semi-translúcida */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro y semi-translúcido */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10; /* Asegura que la capa esté sobre el contenido */
+}
+  
+/* Estilos para el formulario de movimientos */
+.movimientos-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    border: 1px solid #00796b;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 600px;
+    width: 100%;
+    max-height: 80vh; /* Limita la altura del contenedor */
+    overflow-y: auto; /* Permite el desplazamiento vertical si hay muchos movimientos */
+    position: relative; /* Necesario para el botón de cerrar */
+    animation: zoom-in 0.25s ease-in forwards; /* Aplicar animación de zoom-in */
+}
+  
+/* Estilo para el título */
+.movimientos-form h2 {
+    margin-bottom: 20px;
+    color: #00796b;
+}
+  
+/* Estilo para el botón de cerrar */
+.close-button {
+    background-color: #00796b;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    transition: background-color 0.3s;
+}
+
+.close-button:hover {
+    background-color: #004d40; /* Color de fondo más oscuro al pasar el mouse */
+}
+  
+/* Estilos para la lista de movimientos */
+.movimientos-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+  
+.movimiento-item {
+    border-bottom: 1px solid #eee;
+    padding: 10px 0;
+}
+
+/* Estilos para el resumen de movimiento */
+.movimiento-summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Estilos para los detalles del movimiento */
+.movimiento-details {
+    margin-top: 10px;
+    padding-left: 20px;
+}
+
+/* Estilo general para el valor del movimiento */
+.movimiento-item .valor {
+    font-weight: bold;
+}
+
+/* Estilos específicos para el valor dependiendo del tipo de movimiento */
+.movimiento-item[data-tipo='recarga'] .valor {
+    color: #00796b; /* Color para recarga */
+}
+
+.movimiento-item[data-tipo='pago'] .valor {
+    color: #ff0000; /* Color para pago */
+}
+
+.movimiento-item p {
+    margin: 5px 0;
+}
+  
+.movimiento-item p strong {
+    color: #00796b;
+}
+
+.movimiento-group {
+    margin-bottom: 20px;
+}
+  
+.fecha {
+    color:#00796bb3;
+    font-weight: bold;
+    margin-bottom: 10px;
+    border-top: 3px solid #00796b; /* Borde superior verde */
+    padding-top: 10px; /* Espacio para el borde superior */
+}
+  
+.movimientos-container {
+    width: 100%; /* Hace que el contenedor de movimientos tenga el mismo ancho que el formulario */
+}
+
+
+
+/* Movimientos.css */
+
+/* Estilo base para el botón de expansión */
+.expand-button {
+    font-size: 25px;
+    background: transparent;
+    border: none;
+    color: #004d40;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+  
+  /* Estilo cuando el botón está expandido */
+  .expand-button.expanded {
+    transform: rotate(180deg); /* Rote el botón 180 grados para indicar expansión */
+  }
+  
+  /* Estilo base para los detalles del movimiento */
+  .movimiento-details {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, opacity 0.3s ease;
+    opacity: 0;
+  }
+  
+  /* Estilo cuando los detalles están visibles */
+  .movimiento-details.visible {
+    max-height: 200px; /* Ajusta este valor según la altura de tus detalles */
+    opacity: 1;
+  }
+  

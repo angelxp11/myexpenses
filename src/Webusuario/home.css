@@ -5,28 +5,31 @@
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background-color: #e0f7fa; /* Color de fondo claro */
   padding: 1rem;
+  background: linear-gradient(45deg, #004d40, #e0f2f1);
+  background-size: 400% 400%;
+  animation: gradient-animation 10s ease infinite;
   box-sizing: border-box; /* Asegura que el padding no afecte el tamaño total del contenedor */
   position: relative; /* Permite ajustes de posición para los elementos hijos */
 }
 
 /* Estilos para el mensaje de bienvenida */
 .welcome-message {
-  position: absolute; top: 0;/*arriba del todo*/
+  position: absolute; 
+  top: 20px; /* Separado del borde superior */
   font-size: 30px; /* Tamaño del texto ajustado */
   color: #00796b; /* Color del texto */
-  margin-top: 20px; /* Margen superior de 20px para separarlo del borde superior */
   margin-bottom: 10px; /* Margen inferior para separar del siguiente elemento */
   text-align: center; /* Centra el texto horizontalmente */
 }
 
 /* Estilo para el texto de saldo */
 .balance-text {
-  position: absolute; top: 70px;
+  font-weight: bold;
+  position: absolute; 
+  top: 90px; /* Separado del mensaje de bienvenida */
   font-size: 30px; /* Tamaño del texto */
   color: #004d40; /* Color del texto */
-  margin-top: 10px; /* Margen superior para separarlo del mensaje de bienvenida */
   margin-bottom: 20px; /* Margen inferior para separar del siguiente elemento */
   text-align: center; /* Centra el texto horizontalmente */
 }
@@ -44,35 +47,62 @@
 .action-button {
   background-color: #00796b;
   color: white;
-  border: none;
+  border: 2px solid white; /* Borde blanco añadido */
   padding: 10px 20px;
   font-size: 1rem;
   border-radius: 4px;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s, transform 0.3s ease-in-out;
   width: 200px; /* Ancho fijo para todos los botones */
 }
 
+/* Estilo para el estado hover */
 .action-button:hover {
   background-color: #004d40; /* Color de fondo más oscuro al pasar el mouse */
+  animation: zoomIn 0.3s forwards;
+}
+
+/* Estilo para el estado cuando el mouse sale */
+.action-button:not(:hover) {
+  animation: zoomOut 0.3s forwards;
 }
 
 /* Estilo para el botón de cerrar sesión */
 .signout-button {
   background-color: #004d40;
   color: white;
-  border: none;
+  border: 2px solid white; /* Borde blanco añadido */
   padding: 10px 20px;
   font-size: 1rem;
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.3s;
-  position: absolute;
+  position: fixed; /* Usa fixed en lugar de absolute para mantener el botón en la vista */
   bottom: 20px; /* Ubica el botón en la parte inferior */
-  left: 50%;
-  transform: translateX(-50%); /* Centra el botón horizontalmente */
+  left: 50%; /* Posición horizontal en el centro */
+  transform: translateX(-50%); /* Ajusta la posición horizontal para centrar el botón */
 }
 
 .signout-button:hover {
   background-color: #00332e; /* Color de fondo más oscuro al pasar el mouse */
+}
+
+/* Define la animación de zoom in */
+@keyframes zoomIn {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.1);
+  }
+}
+
+/* Define la animación de zoom out */
+@keyframes zoomOut {
+  from {
+    transform: scale(1.1);
+  }
+  to {
+    transform: scale(1);
+  }
 }

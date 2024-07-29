@@ -1,0 +1,31 @@
+/* Estilos para los toasts */
+.Toastify__toast--success {
+    background: #28a745; /* Color de fondo para el toast de éxito */
+    color: #fff; /* Color del texto */
+    border-radius: 5px; /* Bordes redondeados */
+  }
+  
+  .Toastify__toast--error {
+    background: #dc3545; /* Color de fondo para el toast de error */
+    color: #fff; /* Color del texto */
+    border-radius: 5px; /* Bordes redondeados */
+  }
+  
+  .Toastify__toast--info {
+    background: #17a2b8; /* Color de fondo para el toast de información */
+    color: #fff; /* Color del texto */
+    border-radius: 5px; /* Bordes redondeados */
+  }
+  
+  .Toastify__toast--warning {
+    background: #ffc107; /* Color de fondo para el toast de advertencia */
+    color: #000; /* Color del texto */
+    border-radius: 5px; /* Bordes redondeados */
+  }
+  
+  /* Estilos para la posición del toast */
+  .Toastify__toast-container {
+    top: 20px; /* Espacio desde la parte superior de la pantalla */
+    right: 20px; /* Espacio desde el lado derecho de la pantalla */
+  }
+  

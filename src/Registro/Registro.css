@@ -1,52 +1,36 @@
-/* Estilos generales para el contenedor de login */
-.login-container {
+/* Estilos generales para el contenedor de registro */
+.registro-container {
   display: flex;
-  overflow: hidden; /* Para asegurarse de que las imágenes no se salgan del contenedor */
   flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 100vh;
+  padding: 20px;
   background: linear-gradient(45deg, #004d40, #e0f2f1);
   background-size: 400% 400%;
   animation: gradient-animation 10s ease infinite;
-  padding: 20px;
   position: relative; /* Asegúrate de que el contenedor tenga un contexto de posicionamiento */
 }
 
-/* Animación de gradiente */
-@keyframes gradient-animation {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-/* Estilo para el título del formulario */
-.login-title {
+/* Estilo para el título del formulario con animación */
+.registro-title {
   font-size: 2rem;
   margin-bottom: 20px;
-  color: #004d40; /* Color oscuro para el título */
+  color: #00796b;
   opacity: 0; /* Inicialmente invisible */
   animation: zoom-in 0.5s ease-out forwards; /* Aplica la animación */
 }
 
 /* Estilo para el formulario con animación de zoom-in */
-.login-form {
+.registro-form {
   display: flex;
   flex-direction: column;
   width: 100%;
   max-width: 400px;
-  background: #ffffff; /* Color de fondo blanco para el formulario */
+  background: #fff;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  position: relative; /* Asegúrate de que el formulario esté encima del fondo */
-  z-index: 1; /* Asegura que el formulario esté encima del fondo */
   transform: scale(0.8); /* Inicialmente escalado a 80% */
   opacity: 0; /* Inicialmente invisible */
   animation: zoom-in 0.5s ease-out forwards; /* Aplica la animación */
@@ -62,7 +46,7 @@
   display: block;
   font-size: 0.9rem;
   margin-bottom: 5px;
-  color: #00796b; /* Color de texto para las etiquetas */
+  color: #555;
 }
 
 /* Estilo para los campos de entrada */
@@ -70,7 +54,7 @@
   width: 100%;
   padding: 10px;
   font-size: 1rem;
-  border: 1px solid #00796b; /* Color de borde */
+  border: 1px solid #ddd;
   border-radius: 4px;
   box-sizing: border-box;
 }
@@ -91,14 +75,14 @@
   transform: translateY(-50%);
   background: transparent;
   border: none;
-  color: #004d40; /* Color para el botón de mostrar/ocultar */
+  color: #00796b;
   cursor: pointer;
   font-size: 0.9rem;
 }
 
 /* Estilo para el botón de envío del formulario */
-.login-button {
-  background-color: #00796b; /* Color de fondo del botón */
+.registro-button {
+  background-color: #00796b;
   color: white;
   border: none;
   padding: 10px;
@@ -108,34 +92,62 @@
   transition: background-color 0.3s;
 }
 
-.login-button:disabled {
-  background-color: #b2dfdb; /* Color cuando el botón está deshabilitado */
+.registro-button:disabled {
+  background-color: #ddd;
   cursor: not-allowed;
 }
 
-.login-button:hover:not(:disabled) {
-  background-color: #004d40; /* Color de fondo del botón al pasar el mouse */
+.registro-button:hover:not(:disabled) {
+  background-color: #00796b;
 }
 
 /* Estilo para el mensaje de error */
 .error-message {
-  color: #d32f2f; /* Color de error */
+  color: #ff0000;
   font-size: 0.9rem;
   margin-bottom: 15px;
 }
 
-/* Estilo para el enlace de "Olvidé mi contraseña" */
-.forgot-password {
-  color: #00796b; /* Color del enlace de contraseña olvidada */
+/* Estilo para el contenedor de los toasts */
+.Toastify__toast-container {
   font-size: 0.9rem;
-  text-align: center;
-  cursor: pointer;
-  margin-top: 10px;
 }
+
+@keyframes zoom-out {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+}
+
+@keyframes zoom-in {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.zoom-out {
+  animation: zoom-out 1s ease-out forwards;
+}
+
+.registro-title, .registro-form, .login-button {
+  /* Ensure these elements apply the animation */
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
 
 /* Estilo para el enlace de cambio de modo */
 .toggle-link {
-  color: #00796b; /* Color del enlace para cambiar de modo */
+  color: #000000; /* Color del enlace para cambiar de modo */
   font-size: 0.9rem;
   text-align: center;
   cursor: pointer;
@@ -146,42 +158,22 @@
 
 .toggle-link a {
   text-decoration: none;
-  color: #00796b;
+  color: #00796b; /* Color del enlace interno */
 }
 
 .toggle-link a:hover {
   text-decoration: underline;
 }
 
-/* Estilo para el contenedor de los toasts */
-.Toastify__toast-container {
-  font-size: 0.9rem;
-}
 
-/* Animación de zoom-out */
-.zoom-out {
-  animation: zoomOut 0.3s forwards; /* 5 seconds duration */
-}
-
-@keyframes zoomOut {
-  from {
-    transform: scale(1);
-    opacity: 1;
-  }
-  to {
-    transform: scale(0.8);
-    opacity: 0;
-  }
-}
-
-/* Animación de zoom-in */
-@keyframes zoom-in {
+@keyframes gradient-animation {
   0% {
-    transform: scale(0.8); /* Escalado inicial */
-    opacity: 0; /* Inicialmente invisible */
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
   }
   100% {
-    transform: scale(1); /* Escalado final */
-    opacity: 1; /* Totalmente visible */
+    background-position: 0% 50%;
   }
 }
