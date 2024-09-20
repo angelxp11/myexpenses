@@ -2,11 +2,11 @@ import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import { onAuthStateChanged } from 'firebase/auth';
 import { getDoc, doc } from 'firebase/firestore';
-import { auth, db } from './firebase'; // Asegúrate de que esta ruta es correcta
+import { auth, db } from './firebase';
 import Login from './Login/login';
-import Register from './Registro/Registro'; // Asegúrate de que esta ruta es correcta
+import Register from './Registro/Registro';
 import Home from './Webusuario/home';
-import AdminHome from './Webadmin/home'; // Asegúrate de que esta ruta es correcta
+import AdminHome from './Webadmin/home';
 import 'react-toastify/dist/ReactToastify.css'; // Estilos predeterminados de react-toastify
 import './toast.css'; // Importa tus estilos personalizados para los toasts
 
@@ -18,7 +18,6 @@ function App() {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
       if (user) {
-        // Verifica si el usuario es admin
         try {
           const adminDoc = await getDoc(doc(db, 'admin', user.email));
           setIsAdmin(adminDoc.exists());
@@ -44,14 +43,18 @@ function App() {
       <Routes>
         <Route
           path="/login"
-          element={!isAuthenticated ? <Login /> : <Navigate to={isAdmin ? '/admin/home' : '/user/home'} />}
+          element={!isAuthenticated ? <Login /> : <Navigate to={isAdmin ? '/admin/home' : '/myexpenses'} />}
         />
         <Route
           path="/register"
-          element={!isAuthenticated ? <Register /> : <Navigate to={isAdmin ? '/admin/home' : '/user/home'} />}
+          element={!isAuthenticated ? <Register /> : <Navigate to={isAdmin ? '/admin/home' : '/myexpenses'} />}
         />
         <Route
           path="/user/home"
+          element={isAuthenticated && !isAdmin ? <Navigate to="/myexpenses" /> : <Navigate to="/login" />}
+        />
+        <Route
+          path="/myexpenses"
           element={isAuthenticated && !isAdmin ? <Home /> : <Navigate to="/login" />}
         />
         <Route
@@ -59,7 +62,6 @@ function App() {
           element={isAuthenticated && isAdmin ? <AdminHome /> : <Navigate to="/login" />}
         />
         <Route path="*" element={<Navigate to="/login" />} />
-        {/* Define otras rutas aquí */}
       </Routes>
     </Router>
   );
