@@ -44,7 +44,7 @@ function Home() {
     try {
       await signOut(auth);
       // Redirige al login después de cerrar sesión
-      window.location.href = '/login';
+      window.location.href = '/myexpenses';
     } catch (error) {
       console.error('Error al cerrar sesión:', error);
     }
