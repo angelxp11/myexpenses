@@ -7,9 +7,9 @@ import Login from './Login/login';
 import Register from './Registro/Registro';
 import Home from './Webusuario/home';
 import AdminHome from './Webadmin/home';
-import ProtectedRoute from './ProtectedRoute.js'; // Importa el componente de rutas protegidas
-import 'react-toastify/dist/ReactToastify.css'; // Estilos predeterminados de react-toastify
-import './toast.css'; // Importa tus estilos personalizados para los toasts
+import ProtectedRoute from './ProtectedRoute.js';
+import 'react-toastify/dist/ReactToastify.css';
+import './toast.css';
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -66,13 +66,10 @@ function App() {
             </ProtectedRoute>
           }
         />
-        {/* Si intentas acceder a cualquier otra ruta redirige a /myexpenses si está autenticado, o a /login si no lo está */}
         <Route
           path="*"
           element={
-            <ProtectedRoute isAuthenticated={isAuthenticated} redirectPath="/login">
-              <Navigate to="/myexpenses" />
-            </ProtectedRoute>
+            <Navigate to={isAuthenticated ? "/myexpenses" : "/login"} />
           }
         />
       </Routes>
