@@ -43,7 +43,7 @@ function App() {
     <Router>
       <Routes>
         <Route
-          path="/myexpenses"
+          path="/login"
           element={!isAuthenticated ? <Login /> : <Navigate to={isAdmin ? '/admin/home' : '/myexpenses'} />}
         />
         <Route
