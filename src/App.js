@@ -47,9 +47,10 @@ function App() {
           element={!isAuthenticated ? <Login /> : <Navigate to={isAdmin ? '/admin/home' : '/myexpenses'} />}
         />
         <Route
-          path="/register"
-          element={!isAuthenticated ? <Register /> : <Navigate to={isAdmin ? '/admin/home' : '/myexpenses'} />}
-        />
+  path="/myexpenses/register"
+  element={!isAuthenticated ? <Register /> : <Navigate to={isAdmin ? '/admin/home' : '/myexpenses'} />}
+/>
+
         <Route
           path="/myexpenses"
           element={

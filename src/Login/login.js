@@ -49,7 +49,7 @@ function Login() {
   const handleRegisterClick = () => {
     setAnimationClass('zoom-out');
     setTimeout(() => {
-      navigate('/register');
+      navigate('/myexpenses/register');
     }, 100);  // Duration of the zoom-out animation
   };
 
